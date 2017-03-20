@@ -1,0 +1,27 @@
+{
+  "name": "bootloader-basic",
+  "description": "Bootleader bolilerplate project",
+  "main": "index.js",
+  "authors": [
+    "Lalit Tanwar <lalit.tanwar07@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/boilerplatez/bootloader-basic",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webmodules-bootstrap": "^3.2.34",
+    "webmodules-bootloader": "^0.1.19",
+    "webmodules-jqrouter": "^1.1.18",
+    "webmodules-jqbus": "^0.0.8",
+    "webmodules-lazy": "^0.0.5",
+    "jsutils-server": "^0.0.15",
+    "spamjs-view": "^0.1.6",
+    "spamjs-bootconfig": "^0.0.18"
+  }
+}
