@@ -41,3 +41,5 @@ jspm_packages
 src/external/components
 dist
 *.iml
+src/scss/_sprite.scss
+src/fonts/**

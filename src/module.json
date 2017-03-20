@@ -1,0 +1,12 @@
+{
+    "name": "boilerplate",
+    "boilerplate/style": {
+        "css": ["../dist/style/library.css", "../dist/style/main.css"]
+    },
+    "boilerplate/app": {
+        "js": ["myapp.app.js"],
+        "on": ["webmodules/bootloader", "webmodules/underscore", "webmodules/lazy",
+            "spamjs/view", "jsutils/server", "common/notification", "spamjs/modal",
+            "myapp/service", "webmodules/jqbus", "myapp/external", "jsutils/cache"]
+    }
+}
