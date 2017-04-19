@@ -102,7 +102,7 @@ module.exports = function (grunt) {
                 livereloadUrl: "http://localhost:35729/livereload.js",
                 bootServer: {
                     port: 8087,
-                    indexMatch: /^\/myapp\// //URLs to be used to render index.html
+                    indexMatch: /^\/app\// //URLs to be used to render index.html
                 }
             }
         },

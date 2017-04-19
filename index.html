@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyApp</title>
-</head>
-<body>
-    <script src="/dist/bootloader_bundled/webmodules.bootloader.js?version=343434&debug=false">
+    <title>MyApp</title>
+    <script src="/dist/bootloader_bundled/webmodules.bootloader.js?version=1.0&debug=true">
         bootloader({
             appContext: '',
             indexBundle: "myapp/app",
             debugBundles: [],
             apiServer: "/data/"
         });
-	</script>
+    </script>
+</head>
+<body>
+    <spamjs-view module="myapp.app" data-default-url="/app/search"></spamjs-view>
 </body>
-
 </html>
 

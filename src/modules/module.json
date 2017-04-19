@@ -1,0 +1,47 @@
+{
+  "name": "myapp",
+  "myapp/css": {
+    "css": [
+      "../dist/style/library.css",
+      "../dist/style/main.css"
+    ]
+  },
+  "myapp/profiles": {
+    "js": [
+      "profiles/app.profiles.js"
+    ],
+    "on": [
+      "webmodules/lazy",
+      "webmodules/jqrouter",
+      "jsutils/server",
+      "jsutils/cache",
+      "spamjs/view"
+    ]
+  },
+  "myapp/header": {
+    "js": [
+      "header/app.header.js"
+    ],
+    "on": [
+      "spamjs/view"
+    ]
+  },
+  "myapp/search": {
+    "js": [
+      "search/app.search.js"
+    ],
+    "on": [
+      "spamjs/view",
+      "myapp/profiles",
+      "myapp/filters"
+    ]
+  },
+  "myapp/filters": {
+    "js": [
+      "filters/app.filters.js"
+    ],
+    "on": [
+      "spamjs/view"
+    ]
+  }
+}
