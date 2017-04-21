@@ -42,16 +42,17 @@ define({
         getProfiles: function (query) {
             var self = this;
             return fileUtil.get(
-                this.path("profiles.dummy"), query
+                "//spamjs-filters.lalittanwar.com/src/modules/service/profiles.dummy" || this.path("profiles.dummy"), query
             ).then(function (resp) {
                 CACHE = CACHE || jsonutils.parse(resp, {});
                 var ages = (query.age + "").split(",");
                 ages[0] = (ages[0] || 18) - 0;
                 ages[1] = (ages[1] || 70) - 0;
                 var gender = {};
-                ((query.gender + "") || "men,women").split(",").map(function (value) {
+                (((query.gender || "") + "") || "men,women").split(",").map(function (value) {
                     gender[value] = true;
                 });
+                console.log("filter",gender,ages);
                 return CACHE.filter(function (a) {
                     if (a.age <= ages[0] || a.age >= ages[1]) {
                         return false;
@@ -83,6 +84,12 @@ define({
                             return 0;
                     }
                 });
+            }).done(function(resp){
+                console.info("done",resp)
+            }).fail(function(resp){
+                console.info("fail",resp)
+            }).always(function(resp){
+                console.info("always",resp)
             });
         }
     };
