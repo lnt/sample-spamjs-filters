@@ -153,6 +153,9 @@ module.exports = function (grunt) {
                 files: {
                     'dist/style/library.css': [
                         'src/external/components/webmodules-bootstrap/css/bootstrap.min.css',
+                        'src/external/components/jqmodules-bootstrap-select/dist/css/bootstrap-select.css',
+                        "src/external/components/jqtags-jq-slider/jqtags.slider.css",
+                        //"src/external/components/jqtags-jq-slider/dist/css/bootstrap-slider.css",
                         'src/external/components/font-awesome/css/font-awesome.min.css'
                     ]
                 }

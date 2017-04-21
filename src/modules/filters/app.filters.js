@@ -8,9 +8,14 @@ define({
     return {
         _init_: function(config) {
             console.error("config", config);
+            var self = this;
             return this.$$.loadTemplate(
                 this.path("app.filters.html"), {}
-            );
+            ).done(function(){
+                self.model({
+                    age : [24,31],
+                })
+            });
         }
     };
 

@@ -41,7 +41,7 @@
       "filters/app.filters.js"
     ],
     "on": [
-      "spamjs/view"
+      "spamjs/view","webmodules/jquery/ui/min","jqtags/jq-slider","jqtags/jq-select"
     ]
   }
 }

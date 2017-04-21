@@ -4,8 +4,7 @@
     "css": [
       "../dist/style/library.css",
       "../dist/style/main.css"
-    ],
-    "on" : ["webmodules/bootstrap/css"]
+    ]
   },
   "myapp/app": {
     "js": [

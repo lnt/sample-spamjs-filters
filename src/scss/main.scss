@@ -1,0 +1,15 @@
+spamjs-view[module="app.filters"] {
+  display: block;
+  max-width: 300px;
+  float: left;
+  jq-slider {
+    display: inline-block;
+  }
+
+}
+
+spamjs-view[module="app.profiles"] {
+  display: block;
+  width: calc(100% - 330px);
+  float: left;
+}
