@@ -29,6 +29,7 @@ grunt go
  - dummyJson : to generate dummy response/data
  - jqrouter : for ui-side url routing
  - pitana.js - for custom elements
+ - bootloader.js & head.js : for lazyloading of js files when module loaded
 
 
 ## Demo
