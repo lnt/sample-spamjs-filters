@@ -1,21 +1,22 @@
 {
   "name": "myapp/app",
-  "myapp/app/style": {
-    "css": [
-      "../dist/style/library.css",
-      "../dist/style/main.css"
-    ]
-  },
   "myapp/app": {
     "js": [
       "myapp.app.js"
     ],
     "on": [
-      "webmodules/bootloader",
       "webmodules/underscore",
+      "webmodules/bootloader",
       "webmodules/lazy",
       "webmodules/jqrouter",
+      "webmodules/tag",
       "spamjs/view"
+    ]
+  },
+  "myapp/app/style": {
+    "css": [
+      "../dist/style/library.css",
+      "../dist/style/main.css"
     ]
   }
 }

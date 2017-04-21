@@ -42,7 +42,7 @@ define({
         getProfiles: function (query) {
             var self = this;
             return fileUtil.get(
-                this.path("profiles.res"), query
+                this.path("profiles.dummy"), query
             ).then(function (resp) {
                 CACHE = CACHE || jsonutils.parse(resp, {});
                 var ages = (query.age + "").split(",");
