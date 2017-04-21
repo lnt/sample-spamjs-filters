@@ -51,6 +51,8 @@
     "js": [
       "service/app.service.js"
     ],
-    "on": ["webmodules/dummy-json"]
+    "on": [
+      "webmodules/dummy-json"
+    ]
   }
 }

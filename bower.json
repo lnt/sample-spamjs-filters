@@ -25,7 +25,6 @@
     "spamjs-bootconfig": "^0.0.18",
     "jqtags-jq-slider": "^0.0.7",
     "jqtags-jq-select": "^0.0.13",
-    "webmodules-handlebars": "^4.0.5",
-    "webmodules-dummy-json": "^0.0.10"
+    "webmodules-dummy-json": "^0.0.11"
   }
 }
