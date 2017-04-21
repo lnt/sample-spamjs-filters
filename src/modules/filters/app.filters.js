@@ -25,7 +25,9 @@ define({
             });
         },
         filter_param_change: function() {
-            jqrouter.setQueryParams(this.model());
+            jqrouter.setQueryParam("age", this.model().age);
+            jqrouter.setQueryParam("gender", this.model().gender);
+            jqrouter.setQueryParam("keywords", this.model().keywords);
         },
         fix_keywords : function(){
             var self = this;

@@ -22,9 +22,9 @@ define({
                 self.router();
                 self.model({
                     view: jqrouter.getQueryParam("view") || "grid",
-                    sort: jqrouter.getQueryParam("sort") || "popularity"
+                    sort: jqrouter.getQueryParam("sort") || "popular"
                 });
-                self.onQueryChange();
+                self.onViewChange();
             });
         },
         onQueryChange: lazy.debounce(function () {

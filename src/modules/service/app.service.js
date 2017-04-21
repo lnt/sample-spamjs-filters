@@ -72,7 +72,7 @@ define({
                     return true;
                 }).sort(function (a, b) {
                     switch (query.sort) {
-                        case "popularity" : {
+                        case "popular" : {
                             return a.popularity < b.popularity ? 1 : -1;
                         }
                         case "cost" : {
