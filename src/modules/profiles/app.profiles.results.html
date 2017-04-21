@@ -1,0 +1,51 @@
+<!-- if(data.islist){ -->
+<table class="table">
+    <!-- for(var i in data.rows){ -->
+    <tr>
+        <td>
+            <img style="height:50px;"
+                 src="https://randomuser.me/api/portraits/thumb/{{data.rows[i].gender}}/{{data.rows[i].picture}}">
+        </td>
+        <td>
+            {{data.rows[i].name}}
+        </td>
+        <td>
+            Age : {{data.rows[i].age}} | Location : {{data.rows[i].location}}
+        </td>
+        <td>
+            {{data.rows[i].cost}} USD
+        </td>
+    </tr>
+    <!-- }  -->
+</table>
+<!-- } else { -->
+<div class="row">
+    <!-- for(var i in data.rows){ -->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img style="height:150px;"
+                 src="https://randomuser.me/api/portraits/{{data.rows[i].gender}}/{{data.rows[i].picture}}"
+                 alt="...">
+            <div class="caption">
+                <h3>{{data.rows[i].name}}</h3>
+                <p>Age : {{data.rows[i].age}} | Location : {{data.rows[i].location}} </p>
+                <!-- for(var j in data.rows[i].keywords){ -->
+                <span class="label label-default">{{data.rows[i].keywords[j]}}</span>
+                <!-- } -->
+                <hr>
+                <div class="col-sm-6">
+                    <div><strong>{{data.rows[i].cost}} USD</strong></div>
+                    <div class="small">Cost Per Post</div>
+                </div>
+                <div class="col-sm-6">
+                    <a href="#" class="btn btn-primary" role="button">f</a>
+                    <a href="#" class="btn btn-info" role="button">t</a>
+                    <a href="#" class="btn btn-danger" role="button">g</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- }  -->
+</div>
+<!-- } -->

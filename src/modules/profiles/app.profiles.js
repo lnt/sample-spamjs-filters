@@ -2,32 +2,49 @@ define({
     name: "app.profiles",
     extend: "spamjs.view",
     modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.server", "jsutils.json", "lazy", "app.service"]
-}).as(function(app, jqrouter, jQuery, fileUtil, server, jsonutils, lazy, service) {
+}).as(function (app, jqrouter, jQuery, fileUtil, server, jsonutils, lazy, service) {
 
 
     return {
+        events: {
+            "change .filter_param": "onViewChange"
+        },
         router: jqrouter.map({
             "?age": "onQueryChange",
             "?gender": "onQueryChange",
-            "?search": "onQueryChange",
-            "?view": "onViewChange"
+            "?keywords": "onQueryChange",
+            //"?view": "onViewChange",
+            //"?sort": "onViewChange"
         }),
-        _init_: function(config) {
+        _init_: function (config) {
             var self = this;
-            self.onQueryChange().done(function() {
+            this.$$.loadTemplate(this.path("app.profiles.html"), {}).done(function () {
                 self.router();
+                self.model({
+                    view: jqrouter.getQueryParam("view") || "grid",
+                    sort: jqrouter.getQueryParam("sort") || "popularity"
+                });
+                self.onQueryChange();
             });
         },
-        onQueryChange: lazy.debounce(function() {
+        onQueryChange: lazy.debounce(function () {
+            var self = this;
             //Load JSON from Server and apply filter;
-            console.error("search", {});
-            return this.$$.loadTemplate(
-                this.path("app.profiles.html"),
-                service.getProfiles(jqrouter.getQueryParams()).done(function(resp){
-                    console.error("onQueryChange",resp)
+            return this.$$.find("#results").loadTemplate(
+                this.path("app.profiles.results.html"),
+                service.getProfiles(jqrouter.getQueryParams()).then(function (resp) {
+                    return {
+                        rows : resp,
+                        islist : (self.model().view == "list")
+                    }
                 })
             );
-        }, 500)
+        }, 500),
+        onViewChange:  lazy.debounce(function () {
+            jqrouter.setQueryParam("view", this.model().view);
+            jqrouter.setQueryParam("sort", this.model().sort);
+            this.onQueryChange();
+        })
     };
 
 });

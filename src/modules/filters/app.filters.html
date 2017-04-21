@@ -1,19 +1,39 @@
 <h4>Filter Results
 </h4>
+<div class="navbar-form navbar-left">
+    <div class="form-group">
+        <h6>WHAT AGE RANGE ARE YOU SEEKING?
+        </h6>
 
-<h6>WHAT AGE RANGE ARE YOU SEEKING?
-</h6>
-
-<div>
-    <small>18</small><jq-slider class="filter_param" min="18" rv-value="model.age" max="70" step=6 range></jq-slider><small>70</small>
-    &nbsp;|&nbsp;<b>{model.age}</b>
+        <div>
+            <small>18</small>
+            <jq-slider class="filter_param" min="18" rv-value="model.age" max="70" step=6 range></jq-slider>
+            <small>70</small>
+            &nbsp;|&nbsp;<b>{model.age}</b>
+        </div>
+    </div>
+    <div class="form-group">
+        <h6>WHAT GENDER ARE YOU SEEKING?
+        </h6>
+        <jq-select multiple class="filter_param" rv-value="model.gender">
+            <option value="men"> Male</option>
+            <option value="women"> Female</option>
+        </jq-select>
+    </div>
+    <div class="form-group">
+        <h6>Search keywords
+        </h6>
+        <input type="text" class="form-control filter_param" placeholder="sports,nature" rv-value="model.search"
+               rv-on-change="keyword_add">
+        <div>
+            <span rv-each-keyword="model.keywords"
+                  class="label label-default"
+                  rv-keyword="keyword"
+                  rv-on-click="keyword_delete">
+                {keyword} x
+            </span>
+        </div>
+    </div>
+    <br/>
+    <button type="submit" class="search btn btn-default">Search</button>
 </div>
-
-
-<h6>WHAT GENDER ARE YOU SEEKING?
-</h6>
-
-<jq-select multiple class="filter_param" rv-value="model.gender">
-    <option value="men"> Male</option>
-    <option value="women"> Female</option>
-</jq-select>

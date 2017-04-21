@@ -1,8 +1,10 @@
 define({
     name: "app.service",
-    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.server", "jsutils.json"]
-}).as(function (app, jqrouter, jQuery, fileUtil, server, jsonutils) {
+    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.json"]
+}).as(function (app, jqrouter, jQuery, fileUtil, jsonutils) {
 
+
+    var CACHE;
     var randomInt = function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
@@ -19,31 +21,67 @@ define({
         "Baraboo", "Deerfield", "Oregon", "Rhinelander", "Lake Mills", "Evansville", "Edgerton", "Elkhorn", "Delavan", "Bulverde", "McConnelsville",
         "Coolville", "Jackson", "Wellston", "West Point"
     ];
-
+    var _keywords = [
+        "nature", "politics", "science", "maths", "wild", "social" , "sports"
+    ];
+    var _gender = ["men","women"]
     dummyJson.formatters({
         "city": function () {
             return _cities[randomInt(0, _cities.length - 1)];
         },
-        "gender": function (a,b,c) {
-            var list = (a||"men,women").split(",");
-            return list[randomInt(0, list.length - 1)];
+        "gender": function (a, b, c) {
+            return _gender[randomInt(0, _gender.length - 1)];
+        },
+        "keywords": function (a, b, c) {
+            return _keywords[randomInt(0, _keywords.length - 1)];
         }
     });
 
     return {
         getProfiles: function (query) {
+            var self = this;
             return fileUtil.get(
                 this.path("profiles.json"), query
             ).then(function (resp) {
-                var age_start = (query.age.split(",")[0] || 18) - 0;
-                var age_end = (query.age.split(",")[1] || 70) - 0,
-                    _query = {
-                        age_start: age_start,
-                        age_end: age_end,
-                        results: (age_end - age_start),
-                        gender : query.gender
-                    };
-                return jsonutils.parse(resp, _query);
+                CACHE = CACHE || jsonutils.parse(resp, {});
+                var ages = (query.age+"").split(",");
+                ages[0] = (ages[0] || 18)-0;
+                ages[1] = (ages[1] || 70)-0;
+                var gender = {};
+                ((query.gender+"") || "men,women").split(",").map(function (value) {
+                    gender[value] = true;
+                });
+                return CACHE.filter(function (a) {
+                    if(a.age<=ages[0] || a.age>=ages[1]){
+                        return false;
+                    }
+                    if(!gender[a.gender]){
+                        return false;
+                    }
+                    if(query.keywords){
+                        var keywrods = (query.keywords+"").split(",");
+                        for(var i in a.keywords){
+                            if(keywrods.indexOf(a.keywords[i].trim()) > -1){
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    return true;
+                }).sort(function (a, b) {
+                    switch (query.sort) {
+                        case "popularity" : {
+                            return a.popularity < b.popularity ? 1 : -1;
+                        }
+                        case "cost" : {
+                            return a.cost > b.cost ? 1 : -1;
+                        }
+                        case "age" : {
+                            return a.age > b.age ? 1 : -1;
+                        }
+                            return 0;
+                    }
+                });
             });
         }
     };

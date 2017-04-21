@@ -1,26 +1,17 @@
 PROFILES
+<jq-tab class="filter_param" rv-value="model.view">
+    <jq-tab-heads>
+        <jq-tab-head value="grid" class="glyphicon glyphicon-th">&nbsp;</jq-tab-head>
+        <jq-tab-head value="list" class="glyphicon glyphicon-th-list">&nbsp;</jq-tab-head>
+    </jq-tab-heads>
+</jq-tab>
 
-<div class="row">
-    <!-- for(var i in data){ -->
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img style="height:150px;" src="https://randomuser.me/api/portraits/{{data[i].gender}}/{{data[i].picture}}" alt="...">
-            <div class="caption">
-                <h3>{{data[i].name}}</h3>
-                <p>Age : {{data[i].age}} | Location : {{data[i].location}} </p>
-                <hr>
-                <div class="col-sm-6">
-                    <div><strong>{{data[i].cost}} USD</strong></div>
-                    <div class="small">Cost Per Post</div>
-                </div>
-                <div class="col-sm-6">
-                    <a href="#" class="btn btn-primary" role="button">f</a>
-                    <a href="#" class="btn btn-info" role="button">t</a>
-                    <a href="#" class="btn btn-danger" role="button">p</a>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <!-- } -->
+<jq-select class="filter_param" rv-value="model.sort">
+    <option value="popular"> Popular</option>
+    <option value="cost"> Cost</option>
+    <option value="age"> Age</option>
+</jq-select>
+
+<div id="results">
+
 </div>

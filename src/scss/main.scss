@@ -20,3 +20,12 @@ spamjs-view[module="app.profiles"] {
   width: 50%;
   float: left;
 }
+
+jq-tab-head{
+  cursor: pointer;
+  font-size: 20px;
+  color: grey;
+  &[active]{
+    color: black;
+  }
+}

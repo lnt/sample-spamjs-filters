@@ -14,7 +14,8 @@
       "webmodules/lazy",
       "webmodules/jqrouter",
       "spamjs/view",
-      "myapp/service"
+      "myapp/service",
+      "jqtags/jq-tab"
     ]
   },
   "myapp/header": {

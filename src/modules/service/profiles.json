@@ -1,12 +1,14 @@
 [
-  {{#repeat data.results}}
+  {{#repeat 100}}
   {
     "name" : "{{firstName}} {{lastName}}",
-    "age": "{{number data.age_start data.age_end}}",
+    "age": {{number 18 70}},
     "location" : "{{city}}",
-    "gender" : "{{gender data.gender}}",
-    "picture" : "{{number 0 99}}.jpg",
-    "cost" : {{number 0 500}}
+    "gender" : "{{gender}}",
+    "picture" : "{{index}}.jpg",
+    "cost" : {{number 0 500}},
+    "popularity" : {{number 0 99}},
+    "keywords" : [{{#repeat 1 3}} "{{keywords}}" {{/repeat}}]
   }
   {{/repeat}}
 ]
