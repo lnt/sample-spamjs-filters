@@ -41,6 +41,7 @@ define({
                 console.error("sss",this.model().keywords)
                 this.fix_keywords();
                 this.model().keywords.push(this.model().search);
+                this.model().search = "";
             }
         },
         keyword_delete : function(a,b,c){

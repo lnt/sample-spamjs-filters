@@ -1,6 +1,6 @@
-<h4>Filter Results
-</h4>
 <div class="navbar-form navbar-left">
+    <h4>Filter Results
+    </h4>
     <div class="form-group">
         <h6>WHAT AGE RANGE ARE YOU SEEKING?
         </h6>
@@ -28,12 +28,14 @@
         <div>
             <span rv-each-keyword="model.keywords"
                   class="label label-default"
-                  rv-keyword="keyword"
-                  rv-on-click="keyword_delete">
-                {keyword} x
+            >
+                {keyword} <span class="glyphicon glyphicon-remove" pointer
+                                rv-keyword="keyword"
+                                rv-on-click="keyword_delete"
+            ></span>
             </span>
         </div>
     </div>
-    <br/>
+    <hr/>
     <button type="submit" class="search btn btn-default">Search</button>
 </div>

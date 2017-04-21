@@ -21,11 +21,15 @@ spamjs-view[module="app.profiles"] {
   float: left;
 }
 
-jq-tab-head{
+jq-tab-head {
   cursor: pointer;
   font-size: 20px;
   color: grey;
-  &[active]{
+  &[active] {
     color: black;
   }
+}
+
+.glyphicon-remove {
+  cursor: pointer;
 }
