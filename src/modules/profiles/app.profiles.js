@@ -1,8 +1,8 @@
 define({
     name: "app.profiles",
     extend: "spamjs.view",
-    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.server", "jsutils.json", "lazy", "app.service"]
-}).as(function (app, jqrouter, jQuery, fileUtil, server, jsonutils, lazy, service) {
+    modules: ["jqrouter", "lazy", "app.service"]
+}).as(function (app, jqrouter, lazy, service) {
 
 
     return {
@@ -34,13 +34,13 @@ define({
                 this.path("app.profiles.results.html"),
                 service.getProfiles(jqrouter.getQueryParams()).then(function (resp) {
                     return {
-                        rows : resp,
-                        islist : (self.model().view == "list")
+                        rows: resp,
+                        islist: (self.model().view == "list")
                     };
                 })
             );
         }, 500),
-        onViewChange:  lazy.debounce(function () {
+        onViewChange: lazy.debounce(function () {
             jqrouter.setQueryParam("view", this.model().view);
             jqrouter.setQueryParam("sort", this.model().sort);
             this.onQueryChange();
