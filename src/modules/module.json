@@ -6,18 +6,6 @@
       "../dist/style/main.css"
     ]
   },
-  "myapp/profiles": {
-    "js": [
-      "profiles/app.profiles.js"
-    ],
-    "on": [
-      "webmodules/lazy",
-      "webmodules/jqrouter",
-      "spamjs/view",
-      "myapp/service",
-      "jqtags/jq-tab"
-    ]
-  },
   "myapp/header": {
     "js": [
       "header/app.header.js"
@@ -43,7 +31,21 @@
     "on": [
       "spamjs/view",
       "webmodules/jquery/ui/min",
+      "webmodules/jqrouter",
       "jqtags/jq-slider",
+      "jqtags/jq-select"
+    ]
+  },
+  "myapp/profiles": {
+    "js": [
+      "profiles/app.profiles.js"
+    ],
+    "on": [
+      "webmodules/lazy",
+      "webmodules/jqrouter",
+      "spamjs/view",
+      "myapp/service",
+      "jqtags/jq-tab",
       "jqtags/jq-select"
     ]
   },

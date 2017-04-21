@@ -36,7 +36,7 @@ define({
                     return {
                         rows : resp,
                         islist : (self.model().view == "list")
-                    }
+                    };
                 })
             );
         }, 500),

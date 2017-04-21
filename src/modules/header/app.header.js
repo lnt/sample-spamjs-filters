@@ -1,8 +1,8 @@
 define({
     name: "app.header",
     extend: "spamjs.view",
-    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.server", "jsutils.json"]
-}).as(function(app, jqrouter, jQuery, fileUtil, server, jsonutils) {
+    modules: []
+}).as(function(app) {
 
 
     return {

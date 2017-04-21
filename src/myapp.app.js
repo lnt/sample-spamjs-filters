@@ -1,8 +1,8 @@
 define({
     name: "myapp.app",
     extend: "spamjs.view",
-    modules: ["jqrouter", "jQuery", "jsutils.file"]
-}).as(function(app, jqrouter, jQuery, fileUtil) {
+    modules: ["jqrouter"]
+}).as(function(app, jqrouter) {
 
     return {
         router: jqrouter.map({

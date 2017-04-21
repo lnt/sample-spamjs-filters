@@ -128,21 +128,6 @@ module.exports = function (grunt) {
                 cssTemplate: 'src/img/sprite/spriteTemplate/template.handlebars'
             }
         },
-        webfont: {
-            icons: {
-                src: 'src/img/custom-icons/*.svg',
-                dest: 'src/fonts/',
-                destCss: 'src/fonts/style',
-                options: {
-                    font: 'icons',
-                    stylesheet: 'scss',
-                    relativeFontPath: "../../src/fonts/",
-                    htmlDemo: true,
-                    hashes: true,
-                    reporterOutput: ""
-                }
-            }
-        },
         cssmin: {
             options: {
                 target: "WebUI/dist/style",
@@ -172,7 +157,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jsbeautifier');
-    grunt.loadNpmTasks('grunt-webfont');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-bootloader');
     grunt.loadNpmTasks('grunt-spritesmith');
@@ -181,13 +165,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-gitinfo');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'webfont', 'cssmin']);
+    grunt.registerTask('default', ['uglify', 'cssmin']);
 
     // Custom task
     grunt.registerTask('start-cdn-server', ['bootloader:server', 'watch']);
     grunt.registerTask('check', ["jshint", 'jsbeautifier']);
-    grunt.registerTask('scan', ['bootloader:scan:skip', 'webfont', 'cssmin', 'sprite', 'sass:dist', "check"]);
-    grunt.registerTask('bundlify', ['bootloader:bundlify', 'webfont', 'sprite', 'sass:dist', 'cssmin']);
+    grunt.registerTask('scan', ['bootloader:scan:skip', 'cssmin', 'sprite', 'sass:dist', "check"]);
+    grunt.registerTask('bundlify', ['bootloader:bundlify', 'sprite', 'sass:dist', 'cssmin']);
     grunt.registerTask('build', ['gitinfo', 'bundlify']);
     grunt.registerTask('boot', ['start-cdn-server']);
     grunt.registerTask('go', ['scan', 'start-cdn-server']);

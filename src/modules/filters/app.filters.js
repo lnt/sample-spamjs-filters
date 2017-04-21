@@ -1,8 +1,8 @@
 define({
     name: "app.filters",
     extend: "spamjs.view",
-    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.server", "jsutils.json"]
-}).as(function(app, jqrouter, jQuery, fileUtil, server, jsonutils) {
+    modules: ["jqrouter"]
+}).as(function(app, jqrouter) {
 
 
     return {
@@ -11,7 +11,6 @@ define({
             "click .search" : "filter_param_change"
         },
         _init_: function(config) {
-            console.error("config", config);
             var self = this;
             return this.$$.loadTemplate(
                 this.path("app.filters.html"), {}
@@ -26,7 +25,6 @@ define({
             });
         },
         filter_param_change: function() {
-            console.error(arguments);
             jqrouter.setQueryParams(this.model());
         },
         fix_keywords : function(){

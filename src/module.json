@@ -15,10 +15,7 @@
       "webmodules/underscore",
       "webmodules/lazy",
       "webmodules/jqrouter",
-      "jsutils/server",
-      "jsutils/cache",
-      "spamjs/view",
-      "spamjs/modal"
+      "spamjs/view"
     ]
   }
 }

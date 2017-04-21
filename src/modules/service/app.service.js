@@ -1,7 +1,7 @@
 define({
     name: "app.service",
-    modules: ["jqrouter", "jQuery", "jsutils.file", "jsutils.json"]
-}).as(function (app, jqrouter, jQuery, fileUtil, jsonutils) {
+    modules: ["jsutils.file", "jsutils.json"]
+}).as(function (app, fileUtil, jsonutils) {
 
 
     var CACHE;
@@ -22,9 +22,10 @@ define({
         "Coolville", "Jackson", "Wellston", "West Point"
     ];
     var _keywords = [
-        "nature", "politics", "science", "maths", "wild", "social" , "sports"
+        "nature", "politics", "science", "maths", "wild", "social", "sports"
     ];
-    var _gender = ["men","women"]
+    var _gender = ["men", "women"];
+
     dummyJson.formatters({
         "city": function () {
             return _cities[randomInt(0, _cities.length - 1)];
@@ -41,27 +42,27 @@ define({
         getProfiles: function (query) {
             var self = this;
             return fileUtil.get(
-                this.path("profiles.json"), query
+                this.path("profiles.res"), query
             ).then(function (resp) {
                 CACHE = CACHE || jsonutils.parse(resp, {});
-                var ages = (query.age+"").split(",");
-                ages[0] = (ages[0] || 18)-0;
-                ages[1] = (ages[1] || 70)-0;
+                var ages = (query.age + "").split(",");
+                ages[0] = (ages[0] || 18) - 0;
+                ages[1] = (ages[1] || 70) - 0;
                 var gender = {};
-                ((query.gender+"") || "men,women").split(",").map(function (value) {
+                ((query.gender + "") || "men,women").split(",").map(function (value) {
                     gender[value] = true;
                 });
                 return CACHE.filter(function (a) {
-                    if(a.age<=ages[0] || a.age>=ages[1]){
+                    if (a.age <= ages[0] || a.age >= ages[1]) {
                         return false;
                     }
-                    if(!gender[a.gender]){
+                    if (!gender[a.gender]) {
                         return false;
                     }
-                    if(query.keywords){
-                        var keywrods = (query.keywords+"").split(",");
-                        for(var i in a.keywords){
-                            if(keywrods.indexOf(a.keywords[i].trim()) > -1){
+                    if (query.keywords) {
+                        var keywrods = (query.keywords + "").split(",");
+                        for (var i in a.keywords) {
+                            if (keywrods.indexOf(a.keywords[i].trim()) > -1) {
                                 return true;
                             }
                         }
