@@ -13,9 +13,8 @@
     "on": [
       "webmodules/lazy",
       "webmodules/jqrouter",
-      "jsutils/server",
-      "jsutils/cache",
-      "spamjs/view"
+      "spamjs/view",
+      "myapp/service"
     ]
   },
   "myapp/header": {
@@ -41,7 +40,16 @@
       "filters/app.filters.js"
     ],
     "on": [
-      "spamjs/view","webmodules/jquery/ui/min","jqtags/jq-slider","jqtags/jq-select"
+      "spamjs/view",
+      "webmodules/jquery/ui/min",
+      "jqtags/jq-slider",
+      "jqtags/jq-select"
     ]
+  },
+  "myapp/service": {
+    "js": [
+      "service/app.service.js"
+    ],
+    "on": ["webmodules/dummy-json"]
   }
 }

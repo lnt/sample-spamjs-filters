@@ -1,0 +1,12 @@
+[
+  {{#repeat data.results}}
+  {
+    "name" : "{{firstName}} {{lastName}}",
+    "age": "{{number data.age_start data.age_end}}",
+    "location" : "{{city}}",
+    "gender" : "{{gender data.gender}}",
+    "picture" : "{{number 0 99}}.jpg",
+    "cost" : {{number 0 500}}
+  }
+  {{/repeat}}
+]

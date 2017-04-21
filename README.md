@@ -17,3 +17,6 @@ grunt go
 2. Sort by feature 
 3. Search by keywords
 4. Grid vs List view
+
+## Demo
+[Here](http://spamjs-filters.lalittanwar.com/)

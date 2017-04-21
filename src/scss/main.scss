@@ -1,15 +1,22 @@
 spamjs-view[module="app.filters"] {
   display: block;
-  max-width: 300px;
+  max-width: 350px;
+  width: 30%;
   float: left;
+
   jq-slider {
+    width: 55%;
     display: inline-block;
   }
-
 }
 
 spamjs-view[module="app.profiles"] {
   display: block;
-  width: calc(100% - 330px);
+  width: calc(100% - 360px);
+  float: left;
+}
+
+.width_50 {
+  width: 50%;
   float: left;
 }

@@ -5,15 +5,15 @@
 </h6>
 
 <div>
-    18<jq-slider min="18" rv-value="model.age" max="70" step=6 range></jq-slider>70
+    <small>18</small><jq-slider class="filter_param" min="18" rv-value="model.age" max="70" step=6 range></jq-slider><small>70</small>
+    &nbsp;|&nbsp;<b>{model.age}</b>
 </div>
 
-{model.age}
 
 <h6>WHAT GENDER ARE YOU SEEKING?
 </h6>
 
-<jq-select multiple>
-    <option> Male</option>
-    <option> Female</option>
+<jq-select multiple class="filter_param" rv-value="model.gender">
+    <option value="men"> Male</option>
+    <option value="women"> Female</option>
 </jq-select>
