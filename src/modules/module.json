@@ -1,12 +1,6 @@
 {
-  "name": "myapp",
-  "myapp/css": {
-    "css": [
-      "../dist/style/library.css",
-      "../dist/style/main.css"
-    ]
-  },
-  "myapp/header": {
+  "name": "myapp/modules",
+  "myapp/modules/header": {
     "js": [
       "header/app.header.js"
     ],
@@ -14,17 +8,17 @@
       "spamjs/view"
     ]
   },
-  "myapp/search": {
+  "myapp/modules/search": {
     "js": [
       "search/app.search.js"
     ],
     "on": [
       "spamjs/view",
-      "myapp/profiles",
-      "myapp/filters"
+      "myapp/modules//profiles",
+      "myapp/modules//filters"
     ]
   },
-  "myapp/filters": {
+  "myapp/modules/filters": {
     "js": [
       "filters/app.filters.js"
     ],
@@ -36,7 +30,7 @@
       "jqtags/jq-select"
     ]
   },
-  "myapp/profiles": {
+  "myapp/modules/profiles": {
     "js": [
       "profiles/app.profiles.js"
     ],
@@ -44,16 +38,17 @@
       "webmodules/lazy",
       "webmodules/jqrouter",
       "spamjs/view",
-      "myapp/service",
       "jqtags/jq-tab",
-      "jqtags/jq-select"
+      "jqtags/jq-select",
+      "myapp/modules/service"
     ]
   },
-  "myapp/service": {
+  "myapp/modules/service": {
     "js": [
       "service/app.service.js"
     ],
     "on": [
+      "jsutils/file",
       "webmodules/dummy-json"
     ]
   }
