@@ -12,7 +12,7 @@ define({
         _init_: function(config) {
             var self = this;
             jqrouter.start();
-            _importStyle_("myapp/style");
+            _importStyle_("myapp/app/style");
             this.$$.loadTemplate(
                 this.path("myapp.app.html")
             ).done(function() {

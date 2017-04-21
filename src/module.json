@@ -1,6 +1,6 @@
 {
-  "name": "myapp",
-  "myapp/style": {
+  "name": "myapp/app",
+  "myapp/app/style": {
     "css": [
       "../dist/style/library.css",
       "../dist/style/main.css"
